@@ -2,6 +2,9 @@
 
 namespace Flint\Providers;
 
+use Illuminate\Support\ServiceProvider;
+use Flint\Services\UploadService;
+
 class FlintServiceProvider extends ServiceProvider
 {
     public function boot()
@@ -16,8 +19,8 @@ class FlintServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->singleton('fractal', function ($app) {
-        //     return new Manager();
-        // });
+        $this->app->singleton('flint', function ($app) {
+            return new UploadService();
+        });
     }
 }
