@@ -33,16 +33,25 @@ class Asset extends Model
         ]);
     }
 
+    /**
+     * Get the source relationship for the asset
+     */
     public function source()
     {
         return $this->belongsTo(AssetSource::class, 'asset_source_id');
     }
 
+    /**
+     * Get the full asset filename with the extension
+     */
     protected function getFullFilenameAttribute()
     {
         return $this->filename . '.' . $this->kind;
     }
 
+    /**
+     * Get the publicly accessible url
+     */
     public function getUrlAttribute()
     {
         return Storage::disk($this->source->type)->url($this->full_filename);
