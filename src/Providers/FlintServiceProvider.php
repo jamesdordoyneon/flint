@@ -3,7 +3,7 @@
 namespace Flint\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Flint\Services\UploadService;
+use Flint\Managers\AssetManager;
 
 class FlintServiceProvider extends ServiceProvider
 {
@@ -20,7 +20,7 @@ class FlintServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('flint', function ($app) {
-            return new UploadService();
+            return new AssetManager();
         });
     }
 }

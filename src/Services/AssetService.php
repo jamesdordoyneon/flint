@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace Flint\Services;
 
 use Illuminate\Http\UploadedFile;
 
-class UploadService
+class AssetService
 {
     public function upload(UploadedFile $file)
     {

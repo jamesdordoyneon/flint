@@ -54,6 +54,9 @@ class Asset extends Model
      */
     public function getUrlAttribute()
     {
+        if ($this->source->folder) {
+            return Storage::disk($this->source->type)->url($this->source->folder . '/' . $this->full_filename);
+        }
         return Storage::disk($this->source->type)->url($this->full_filename);
     }
 }

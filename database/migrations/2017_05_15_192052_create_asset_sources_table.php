@@ -17,6 +17,7 @@ class CreateAssetSourcesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('handle')->unique();
+            $table->string('folder')->nullable();
             $table->string('type');
             $table->timestamps();
         });
