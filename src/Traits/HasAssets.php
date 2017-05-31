@@ -3,6 +3,9 @@
 namespace Flint\Traits;
 
 use Flint\Models\Asset;
+use Flint\Models\AssetSource;
+use Illuminate\Http\UploadedFile;
+use Flint;
 
 trait HasAssets
 {

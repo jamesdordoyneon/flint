@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssetSourcesTable extends Migration
+class CreateAssetFoldersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateAssetSourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('asset_sources', function (Blueprint $table) {
+        Schema::create('asset_folders', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('asset_source_id')->unsigned();
+            $table->foreign('asset_source_id')->references('id')->on('asset_sources');
+
             $table->string('name');
-            $table->string('handle')->unique();
-            $table->string('folder')->nullable();
-            $table->string('disk');
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateAssetSourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asset_sources');
+        Schema::dropIfExists('asset_folders');
     }
 }

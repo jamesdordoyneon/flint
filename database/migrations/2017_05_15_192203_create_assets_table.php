@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssetFilesTable extends Migration
+class CreateAssetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAssetFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('asset_files', function (Blueprint $table) {
+        Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
 
             // Relations
@@ -22,6 +22,7 @@ class CreateAssetFilesTable extends Migration
             $table->morphs('assetable');
 
             // Properties
+            $table->string('name');
             $table->string('filename');
             $table->string('kind');
             $table->string('width')->nullable();

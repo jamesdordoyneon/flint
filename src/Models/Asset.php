@@ -12,7 +12,7 @@ class Asset extends Model
      *
      * @var string
      */
-    protected $table = 'asset_files';
+    protected $table = 'assets';
 
     /**
      * Get all of the owning commentable models.
@@ -38,7 +38,7 @@ class Asset extends Model
      */
     public function source()
     {
-        return $this->belongsTo(AssetSource::class, 'asset_source_id');
+        return $this->belongsTo(AssetSource::class);
     }
 
     /**

@@ -3,7 +3,8 @@
 namespace Flint\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Flint\Managers\AssetManager;
+use Flint\Services\AssetService;
+use Flint\Managers\InterventionImage;
 
 class FlintServiceProvider extends ServiceProvider
 {
@@ -20,7 +21,10 @@ class FlintServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('flint', function ($app) {
-            return new AssetManager();
+            return new AssetService();
+        });
+        $this->app->singleton('flint.manager', function ($app) {
+            return new InterventionImage();
         });
     }
 }
