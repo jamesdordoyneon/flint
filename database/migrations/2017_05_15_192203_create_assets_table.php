@@ -24,6 +24,7 @@ class CreateAssetsTable extends Migration
             // Properties
             $table->string('name');
             $table->string('filename');
+            $table->string('original_filename');
             $table->string('kind');
             $table->string('width')->nullable();
             $table->string('height')->nullable();
