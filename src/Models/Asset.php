@@ -50,6 +50,14 @@ class Asset extends Model
     }
 
     /**
+     * Get the full asset filename with the extension
+     */
+    protected function getOriginalFullFilenameAttribute()
+    {
+        return $this->original_filename . '.' . $this->kind;
+    }
+
+    /**
      * Get the publicly accessible url
      */
     public function getUrlAttribute()
