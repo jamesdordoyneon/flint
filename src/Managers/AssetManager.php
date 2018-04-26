@@ -36,9 +36,8 @@ class AssetManager
     {
         $asset = new \Flint\Models\Asset();
 
-        $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
-
-        $asset->filename = $filename;
+        $asset->filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
+        $asset->original_filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $asset->kind = $file->extension();
         $asset->size = $file->getClientSize();
         $asset->asset_source_id = $this->source->id;
